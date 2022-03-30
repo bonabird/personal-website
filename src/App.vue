@@ -1,5 +1,6 @@
 <template>
   <the-header></the-header>
+  <side-bar></side-bar>
   <router-view v-slot="slotProps">
     <transition name="route" mode="out-in">
       <component :is="slotProps.Component"></component>
@@ -9,12 +10,14 @@
 
 <script>
 import TheHeader from "./components/layout/TheHeader.vue";
+import SideBar from "./components/layout/SideBar.vue";
 
 export default {
   components: {
     TheHeader,
+    SideBar,
   },
-}
+};
 </script>
 
 <style>
