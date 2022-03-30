@@ -1,9 +1,7 @@
 <template>
-  <header>
+  <div class="side-bar">
+    <div class="vl"></div>
     <nav>
-      <h1>
-        <router-link to="/">PDB</router-link>
-      </h1>
       <ul>
         <li>
           <router-link to="/about">About</router-link>
@@ -17,36 +15,24 @@
         <li>
           <router-link to="/contact">Contact</router-link>
         </li>
-        <li>
-          <base-button @click="downloadResume">Resume</base-button>
-        </li>
       </ul>
     </nav>
-  </header>
+  </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    downloadResume() {
-      this.$store.dispatch("logout");
-      this.$router.replace("/coaches");
-    },
-  },
-};
-</script>
-
 <style scoped>
-header {
-  width: 100%;
-  height: 5rem;
-  background-color: #3d008d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.side-bar {
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  bottom: 0; /* Stay at the top */
+  left: 0;
+  background-color: #f5532e;
+  overflow-x: visible;
+  padding-top: 20px;
 }
 
-header a {
+a {
   text-decoration: none;
   color: #f391e3;
   display: inline-block;
@@ -60,39 +46,33 @@ a.router-link-active {
   border: 1px solid #f391e3;
 }
 
-h1 {
-  margin: 0;
-}
-
-h1 a {
-  color: white;
-  margin: 0;
-}
-
-h1 a:hover,
-h1 a:active,
-h1 a.router-link-active {
-  border-color: transparent;
-}
-
-header nav {
+nav {
+  margin-top: auto;
   width: 90%;
   margin: auto;
   display: flex;
+  bottom: 0;
   justify-content: space-between;
   align-items: center;
 }
 
-header ul {
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
+  bottom: 0;
   justify-content: center;
   align-items: center;
 }
 
 li {
   margin: 0 0.5rem;
+}
+
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+  position: relative;
+  left: 50%;
 }
 </style>
